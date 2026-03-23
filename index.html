@@ -41,12 +41,11 @@ body::before {
 content: "";
 position: fixed;
 inset: 0;
-background:
-linear-gradient(30deg, transparent 48.5%, var(--line) 49%, var(--line) 51%, transparent 51.5%),
-linear-gradient(150deg, transparent 48.5%, var(--line) 49%, var(--line) 51%, transparent 51.5%);
-background-size: 520px 300px;
+background-image: url("data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23bbbbbb' stroke-width='1.2' fill='none' opacity='0.4'%3E%3Cpolygon points='200,100 400,200 200,300 0,200'/%3E%3Cpolygon points='400,200 600,100 800,200 600,300'/%3E%3Cpolygon points='200,300 400,400 200,500 0,400'/%3E%3Cpolygon points='400,400 600,300 800,400 600,500'/%3E%3C/g%3E%3C/svg%3E");
+background-size: 1000px auto;
 background-position: center;
-opacity: 0.5;
+background-repeat: no-repeat;
+opacity: 0.15;
 pointer-events: none;
 z-index: 0;
 }
