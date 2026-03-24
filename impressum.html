@@ -1,16 +1,162 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Impressum – Smart Struggle</title>
-</head>
-<body style="font-family: Arial; max-width: 700px; margin: 40px auto; line-height: 1.6;">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--bg-center: #eef2f8;
+--bg-mid: #dbe2ef;
+--bg-edge: #c6d0e1;
+
+--text: #23262d;
+--subtle: #4f5763;
+--line: rgba(84, 95, 120, 0.10);
+}
+
+* {
+box-sizing: border-box;
+}
+
+html, body {
+margin: 0;
+padding: 0;
+min-height: 100%;
+}
+
+body {
+font-family: 'Inter', Arial, sans-serif;
+color: var(--text);
+background:
+radial-gradient(circle at center, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.16) 34%, rgba(255,255,255,0) 58%),
+radial-gradient(circle at center, var(--bg-center) 0%, var(--bg-mid) 58%, var(--bg-edge) 100%);
+position: relative;
+overflow-x: hidden;
+}
+
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+opacity: 0.5;
+background:
+radial-gradient(circle at 50% 46%, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0) 30%),
+radial-gradient(circle at 18% 22%, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 22%),
+radial-gradient(circle at 82% 20%, rgba(210,220,238,0.16) 0%, rgba(210,220,238,0) 20%);
+z-index: 0;
+}
+
+body::after {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+opacity: 0.03;
+background-image:
+radial-gradient(rgba(40, 48, 67, 0.85) 0.45px, transparent 0.45px);
+background-size: 8px 8px;
+z-index: 0;
+}
+
+.page {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 48px 24px;
+position: relative;
+z-index: 1;
+}
+
+.card {
+width: min(92vw, 760px);
+text-align: center;
+padding: 24px 16px 40px;
+}
+
+h1 {
+margin: 0 0 38px 0;
+font-family: 'Playfair Display', serif;
+font-weight: 400;
+font-size: clamp(42px, 7vw, 72px);
+line-height: 0.95;
+letter-spacing: 0.03em;
+color: rgba(35, 38, 45, 0.92);
+}
+
+.content {
+max-width: 560px;
+margin: 0 auto;
+font-size: clamp(18px, 2.1vw, 21px);
+line-height: 1.7;
+color: var(--subtle);
+}
+
+.content p {
+margin: 0 0 28px 0;
+}
+
+.content a {
+color: inherit;
+text-decoration: none;
+border-bottom: 1px solid rgba(79, 87, 99, 0.28);
+}
+
+.label {
+display: block;
+margin-bottom: 10px;
+font-size: 15px;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: rgba(79, 87, 99, 0.72);
+}
+
+.back-link {
+display: inline-block;
+margin-top: 18px;
+font-size: 14px;
+color: rgba(35, 38, 45, 0.55);
+text-decoration: none;
+}
+
+.back-link:hover {
+text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+.page {
+padding: 34px 22px;
+}
+
+.card {
+padding: 14px 6px 28px;
+}
+
+.content {
+font-size: 17px;
+line-height: 1.65;
+}
+
+h1 {
+margin-bottom: 28px;
+}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<section class="card">
 <h1>Impressum</h1>
 
-<p>
-Angaben gemäß § 5 TMG
-</p>
+<div class="content">
+<p><span class="label">Angaben gemäß § 5 TMG</span></p>
 
 <p>
 Natalie Weskamp<br>
@@ -20,7 +166,7 @@ Deutschland
 </p>
 
 <p>
-E-Mail: hello@smartstruggle.de
+<a href="mailto:hello@smartstruggle.de">hello@smartstruggle.de</a>
 </p>
 
 <p>
@@ -28,5 +174,9 @@ Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
 Natalie Weskamp
 </p>
 
+<a class="back-link" href="/">Zurück zur Startseite</a>
+</div>
+</section>
+</main>
 </body>
 </html>
