@@ -1,27 +1,177 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Datenschutz – Smart Struggle</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--bg-center: #eef2f8;
+--bg-mid: #dbe2ef;
+--bg-edge: #c6d0e1;
+
+--text: #23262d;
+--subtle: #4f5763;
+--heading: #23262d;
+}
+
+* {
+box-sizing: border-box;
+}
+
+html, body {
+margin: 0;
+padding: 0;
+min-height: 100%;
+}
+
+body {
+font-family: 'Inter', Arial, sans-serif;
+color: var(--text);
+background:
+radial-gradient(circle at center, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.16) 34%, rgba(255,255,255,0) 58%),
+radial-gradient(circle at center, var(--bg-center) 0%, var(--bg-mid) 58%, var(--bg-edge) 100%);
+position: relative;
+overflow-x: hidden;
+}
+
+body::before {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+opacity: 0.5;
+background:
+radial-gradient(circle at 50% 46%, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0) 30%),
+radial-gradient(circle at 18% 22%, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 22%),
+radial-gradient(circle at 82% 20%, rgba(210,220,238,0.16) 0%, rgba(210,220,238,0) 20%);
+z-index: 0;
+}
+
+body::after {
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+opacity: 0.03;
+background-image:
+radial-gradient(rgba(40, 48, 67, 0.85) 0.45px, transparent 0.45px);
+background-size: 8px 8px;
+z-index: 0;
+}
+
+.page {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 56px 24px;
+position: relative;
+z-index: 1;
+}
+
+.card {
+width: min(92vw, 860px);
+text-align: center;
+padding: 24px 16px 44px;
+}
+
+h1 {
+margin: 0 0 34px 0;
+font-family: 'Playfair Display', serif;
+font-weight: 400;
+font-size: clamp(42px, 7vw, 72px);
+line-height: 0.95;
+letter-spacing: 0.03em;
+color: rgba(35, 38, 45, 0.92);
+}
+
+.content {
+max-width: 700px;
+margin: 0 auto;
+color: var(--subtle);
+text-align: center;
+}
+
+.content p {
+margin: 0 0 22px 0;
+font-size: clamp(17px, 2vw, 20px);
+line-height: 1.75;
+}
+
+.content h2 {
+margin: 36px 0 14px 0;
+font-size: clamp(20px, 2.3vw, 28px);
+line-height: 1.25;
+font-weight: 500;
+color: var(--heading);
+}
+
+.content a {
+color: inherit;
+text-decoration: none;
+border-bottom: 1px solid rgba(79, 87, 99, 0.28);
+}
+
+.back-link {
+display: inline-block;
+margin-top: 18px;
+font-size: 14px;
+color: rgba(35, 38, 45, 0.55);
+text-decoration: none;
+}
+
+.back-link:hover {
+text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+.page {
+padding: 34px 22px;
+}
+
+.card {
+padding: 14px 6px 28px;
+}
+
+.content p {
+font-size: 16px;
+line-height: 1.7;
+}
+
+.content h2 {
+margin-top: 28px;
+font-size: 21px;
+}
+}
+</style>
 </head>
-<body style="font-family: Arial; max-width: 700px; margin: 40px auto; line-height: 1.6;">
+<body>
+<main class="page">
+<section class="card">
+<h1>Datenschutz</h1>
 
-<h1>Datenschutzerklärung</h1>
-
-<p>
-Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst.
-</p>
+<div class="content">
+<p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst.</p>
 
 <h2>1. Verantwortliche Stelle</h2>
 <p>
 Natalie Weskamp<br>
-Gladbacher Straße 35 50672 Köln<br>
-E-Mail: hello@smartstruggle.de
+Gladbacher Straße 35<br>
+50672 Köln<br>
+<a href="mailto:hello@smartstruggle.de">hello@smartstruggle.de</a>
 </p>
 
 <h2>2. Zugriffsdaten</h2>
 <p>
-Beim Besuch dieser Website werden automatisch Informationen durch den Hosting-Anbieter erfasst (z. B. IP-Adresse, Zeitpunkt des Zugriffs, Browsertyp). Diese Daten dienen der technischen Bereitstellung und Sicherheit der Website.
+Beim Besuch dieser Website werden automatisch Informationen durch den Hosting-Anbieter erfasst
+(z. B. IP-Adresse, Zeitpunkt des Zugriffs, Browsertyp). Diese Daten dienen der technischen
+Bereitstellung und Sicherheit der Website.
 </p>
 
 <h2>3. Kontaktaufnahme</h2>
@@ -39,7 +189,9 @@ Diese Website verwendet aktuell keine Cookies und kein Tracking.
 Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer gespeicherten Daten.
 </p>
 
+<a class="back-link" href="/">Zurück zur Startseite</a>
+</div>
+</section>
+</main>
 </body>
 </html>
-
-
