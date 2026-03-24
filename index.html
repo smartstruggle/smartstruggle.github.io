@@ -43,9 +43,9 @@ min-height: 100%;
 
 .logo {
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 margin-bottom: 6px;
-transform: translateX(-60px);
+padding-left: 0;
 }
 
 .logo img {
@@ -56,7 +56,9 @@ filter: drop-shadow(0 14px 40px rgba(0,0,0,0.10));
 
 @media (min-width: 900px) {
 .logo {
+justify-content: flex-start;
 margin-bottom: 0;
+padding-left: 120px;
 }
 
 .logo img {
