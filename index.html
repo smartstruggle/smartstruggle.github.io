@@ -50,15 +50,25 @@ min-height: 100%;
 .logo {
 display: flex;
 justify-content: center;
-margin-bottom: 32px;
+margin-bottom: 18px;
 }
 
 .logo img {
-width: 18vw;
-max-width: 140px;
-min-width: 80px;
+width: 24vw;
+max-width: 170px;
+min-width: 95px;
 height: auto;
 filter: drop-shadow(0 14px 40px rgba(0,0,0,0.10));
+}
+
+@media (min-width: 900px) {
+.logo {
+margin-bottom: 10px;
+}
+
+.logo img {
+width: 150px;
+}
 }
   
 html {
