@@ -198,18 +198,17 @@ text-shadow: 0 1px 0 rgba(255,255,255,0.18);
 }
 
 .tagline {
-margin: 24px 0 0 0;
+margin: 34px 0 0 0;
 font-size: 1.05rem;
 letter-spacing: 0.04em;
 text-transform: none;
-
-color: #d17a3a; /* warmes Orange */
+color: #d17a3a;
 font-weight: 500;
 text-align: left;
 }
 
 .soon {
-margin: 16px 0 0 0;
+margin: 22px 0 0 0;
 font-size: 1rem;
 line-height: 1.6;
 color: #5f6670;
@@ -243,15 +242,16 @@ flex-wrap: wrap;
 .button.primary {
   background: linear-gradient(
     135deg,
-    #3f5f4e 0%,
-    #4e6f5d 42%,
-    #708f7d 100%
+    #4a6f5a 0%,
+    #6b8b78 38%,
+    #8fa694 68%,
+    #5f826d 100%
   );
   color: #ffffff;
   border: none;
   box-shadow:
-    0 6px 18px rgba(40, 60, 50, 0.18),
-    inset 0 1px 0 rgba(255,255,255,0.22);
+    0 8px 22px rgba(40, 60, 50, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.30);
 }
 
 .button.primary::after {
@@ -259,38 +259,41 @@ flex-wrap: wrap;
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(
-    circle at 28% 20%,
-    rgba(255,255,255,0.22),
-    transparent 60%
-  );
-  opacity: 0.7;
+  background:
+    radial-gradient(
+      circle at 28% 22%,
+      rgba(255,255,255,0.30),
+      transparent 46%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.10) 0%,
+      rgba(255,255,255,0.00) 55%
+    );
+  opacity: 0.85;
   pointer-events: none;
 }
 
 .button.primary:hover {
   transform: translateY(-1px);
   box-shadow:
-    0 10px 24px rgba(40, 60, 50, 0.22),
-    inset 0 1px 0 rgba(255,255,255,0.28);
+    0 12px 28px rgba(40, 60, 50, 0.20),
+    inset 0 1px 0 rgba(255,255,255,0.34);
 }
 
 .button.secondary {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.14);
   color: #2f4f3f;
-  border: 1.2px solid #d17a3a;
-  box-shadow: 0 6px 18px rgba(54, 68, 96, 0.06);
+  border: 1.2px solid rgba(209,122,58,0.88);
+  box-shadow: 0 6px 18px rgba(54, 68, 96, 0.05);
+  backdrop-filter: blur(6px);
 }
 
 .button.secondary:hover {
   transform: translateY(-1px);
-  background: rgba(255,255,255,0.26);
+  background: rgba(255,255,255,0.22);
 }
 
-.tagline-break {
-white-space: nowrap;
-}
-  
 .fade-up-1 { animation-delay: 0.2s; }
 .fade-up-2 { animation-delay: 0.35s; }
 .fade-up-3 { animation-delay: 0.5s; }
@@ -394,9 +397,13 @@ margin: 0 auto;
 }
 
 .button {
-width: 100%;
+width: min(100%, 580px);
 justify-content: center;
 }
+
+.actions {
+gap: 16px;
+}  
 
 h1 {
 letter-spacing: 0.028em;
