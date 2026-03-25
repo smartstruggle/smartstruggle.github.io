@@ -242,45 +242,54 @@ flex-wrap: wrap;
 .button.primary {
 background: linear-gradient(
 90deg,
-#4d705f 0%,
-#6f947f 18%,
-#86a892 50%,
-#6f947f 82%,
-#4d705f 100%
+#3f6956 0%,
+#5f876f 22%,
+#7ea28c 50%,
+#5f876f 78%,
+#3f6956 100%
 );
 color: #ffffff;
 border: none;
 box-shadow:
-0 8px 22px rgba(34, 52, 43, 0.18),
-inset 0 1px 0 rgba(255,255,255,0.24);
+0 8px 22px rgba(40, 60, 50, 0.15),
+inset 0 1px 0 rgba(255,255,255,0.22);
 }
 
 
 .button.primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      circle at 28% 22%,
-      rgba(255,255,255,0.30),
-      transparent 46%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.10) 0%,
-      rgba(255,255,255,0.00) 55%
-    );
-  opacity: 0.55;
-  pointer-events: none;
+content: "";
+position: absolute;
+inset: 0;
+border-radius: inherit;
+background:
+radial-gradient(
+circle at 28% 22%,
+rgba(255,255,255,0.16),
+transparent 42%
+),
+linear-gradient(
+180deg,
+rgba(255,255,255,0.06) 0%,
+rgba(255,255,255,0.00) 58%
+);
+opacity: 0.40;
+pointer-events: none;
 }
 
 .button.primary:hover {
 transform: translateY(-1px);
 box-shadow:
-0 12px 28px rgba(34, 52, 43, 0.22),
-inset 0 1px 0 rgba(255,255,255,0.30);
+0 12px 28px rgba(40, 60, 50, 0.20),
+inset 0 1px 0 rgba(255,255,255,0.26);
+
+background: linear-gradient(
+90deg,
+#375f4e 0%,
+#567c66 22%,
+#739884 50%,
+#567c66 78%,
+#375f4e 100%
+);
 }
 
 .button.secondary {
@@ -591,10 +600,16 @@ body::after,
 <g fill="none" stroke-linejoin="round" stroke-linecap="round">
 
 <!-- zusätzliche obere Reihe -->
-<g filter="url(#softBlur)" fill="rgba(255,255,255,0.045)" stroke="var(--line-soft)" stroke-width="1.0" opacity="0.72">
-<polygon points="115,-55 330,-180 545,-55 545,195 330,320 115,195" />
-<polygon points="545,-55 760,-180 975,-55 975,195 760,320 545,195" />
-<polygon points="975,-55 1190,-180 1405,-55 1405,195 1190,320 975,195" />
+<g filter="url(#softBlur)" fill="rgba(255,255,255,0.028)" stroke="rgba(84,95,120,0.045)" stroke-width="0.9" opacity="0.54">
+<polygon points="115,-95 330,-220 545,-95 545,155 330,280 115,155" />
+<polygon points="545,-95 760,-220 975,-95 975,155 760,280 545,155" />
+<polygon points="975,-95 1190,-220 1405,-95 1405,155 1190,280 975,155" />
+</g>
+
+<g stroke="rgba(84,95,120,0.11)" stroke-width="0.72" opacity="0.34">
+<polygon points="115,-95 330,-220 545,-95 545,155 330,280 115,155" />
+<polygon points="545,-95 760,-220 975,-95 975,155 760,280 545,155" />
+<polygon points="975,-95 1190,-220 1405,-95 1405,155 1190,280 975,155" />
 </g>
 
 <g stroke="var(--line)" stroke-width="0.82" opacity="0.42">
