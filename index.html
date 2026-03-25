@@ -260,6 +260,10 @@ font-size: 0.95rem;
 color: #d17a3a; /* warmes, ruhiges Orange */
 font-weight: 500;
 }
+
+.tagline-break {
+white-space: nowrap;
+}
   
 .fade-up-1 { animation-delay: 0.2s; }
 .fade-up-2 { animation-delay: 0.35s; }
@@ -350,6 +354,16 @@ justify-content: center;
 h1 {
 letter-spacing: 0.028em;
 }
+
+.tagline {
+max-width: 260px;
+}
+
+.tagline-break {
+display: block;
+white-space: normal;
+}
+  
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -545,7 +559,7 @@ pointer-events: none;
 </div>
 <h1 class="fade-item fade-up-1">SMART<br>STRUGGLE</h1>
 
-<p class="tagline fade-item fade-up-2">awareness over <br> self improvement</p>
+<p class="tagline fade-item fade-up-2">awareness over <span class="tagline-break">self improvement</span></p>
 <p class="soon fade-item fade-up-3">understand your struggles<br>find what actually helps</p>
 
 <p class="human-note fade-item fade-up-4">
