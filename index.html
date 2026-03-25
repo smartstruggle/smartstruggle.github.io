@@ -242,17 +242,19 @@ flex-wrap: wrap;
 .button.primary {
 background: linear-gradient(
 90deg,
-#2f5a4c 0%,
-#3f6f5d 22%,
-#557f6f 50%,
-#3f6f5d 78%,
-#2f5a4c 100%
+#2f6657 0%,
+#35715f 16%,
+#3e7b67 34%,
+#739785 50%,
+#3e7b67 66%,
+#35715f 84%,
+#2f6657 100%
 );
 color: #ffffff;
 border: none;
 box-shadow:
-0 8px 22px rgba(30, 50, 45, 0.18),
-inset 0 1px 0 rgba(255,255,255,0.18);
+0 8px 22px rgba(31, 54, 47, 0.16),
+inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 .button.primary::after {
@@ -261,33 +263,29 @@ position: absolute;
 inset: 0;
 border-radius: inherit;
 background:
-radial-gradient(
-circle at 28% 22%,
-rgba(255,255,255,0.10),
-transparent 42%
-),
 linear-gradient(
 180deg,
-rgba(255,255,255,0.05) 0%,
-rgba(255,255,255,0.00) 60%
+rgba(255,255,255,0.035) 0%,
+rgba(255,255,255,0.00) 58%
 );
-opacity: 0.35;
+opacity: 0.22;
 pointer-events: none;
 }
 
 .button.primary:hover {
 transform: translateY(-1px);
 box-shadow:
-0 12px 28px rgba(40, 60, 50, 0.20),
-inset 0 1px 0 rgba(255,255,255,0.26);
-
+0 12px 28px rgba(31, 54, 47, 0.18),
+inset 0 1px 0 rgba(255,255,255,0.15);
 background: linear-gradient(
 90deg,
-#375f4e 0%,
-#567c66 22%,
-#739884 50%,
-#567c66 78%,
-#375f4e 100%
+#2a5d4f 0%,
+#316856 16%,
+#397360 34%,
+#688b79 50%,
+#397360 66%,
+#316856 84%,
+#2a5d4f 100%
 );
 }
 
@@ -363,11 +361,29 @@ filter: blur(0.8px);
 
 .bg {
 display: block;
-opacity: 0.9;
+opacity: 0.82;
 width: 122%;
 height: 122%;
 transform: translate(-8%, -4%) scale(1.01);
 }
+
+.mobile-octagons {
+display: block;
+position: fixed;
+inset: 0;
+z-index: 3;
+pointer-events: none;
+opacity: 0.34;
+background-image:
+url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 430 220'><g fill='none' stroke='rgba(84,95,120,0.10)' stroke-width='1'><polygon points='55,30 105,2 155,30 155,88 105,116 55,88'/><polygon points='155,30 205,2 255,30 255,88 205,116 155,88'/><polygon points='255,30 305,2 355,30 355,88 305,116 255,88'/><polygon points='5,88 55,60 105,88 105,146 55,174 5,146'/><polygon points='105,88 155,60 205,88 205,146 155,174 105,146'/><polygon points='205,88 255,60 305,88 305,146 255,174 205,146'/><polygon points='305,88 355,60 405,88 405,146 355,174 305,146'/></g></svg>");
+background-repeat: no-repeat;
+background-size: 118% auto;
+background-position: center top 40px;
+mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.78) 42%, rgba(0,0,0,0.22) 72%, rgba(0,0,0,0) 100%);
+-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.78) 42%, rgba(0,0,0,0.22) 72%, rgba(0,0,0,0) 100%);
+}
+
+
 
 .logo {
 display: flex;
@@ -538,12 +554,18 @@ body::after,
 .bg-wrap {
   pointer-events: none;
 }
+
+.mobile-octagons {
+display: none;
+}
   
 </style>
 </head>
 <body>
 <div class="ambient-blur"></div>
 
+<div class="mobile-octagons" aria-hidden="true"></div>
+  
 <div class="bg-wrap" id="bgWrap">
 <svg class="bg" viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <defs>
@@ -597,19 +619,6 @@ body::after,
 <ellipse cx="1240" cy="820" rx="260" ry="160" fill="rgba(200,212,232,0.08)" filter="url(#mistBlur)" opacity="0.55"/>
 
 <g fill="none" stroke-linejoin="round" stroke-linecap="round">
-
-<!-- zusätzliche obere Reihe -->
-<g filter="url(#softBlur)" fill="rgba(255,255,255,0.018)" stroke="rgba(84,95,120,0.032)" stroke-width="0.82" opacity="0.42">
-<polygon points="115,-95 330,-220 545,-95 545,155 330,280 115,155" />
-<polygon points="545,-95 760,-220 975,-95 975,155 760,280 545,155" />
-<polygon points="975,-95 1190,-220 1405,-95 1405,155 1190,280 975,155" />
-</g>
-
-<g stroke="rgba(84,95,120,0.08)" stroke-width="0.62" opacity="0.24">
-<polygon points="115,-95 330,-220 545,-95 545,155 330,280 115,155" />
-<polygon points="545,-95 760,-220 975,-95 975,155 760,280 545,155" />
-<polygon points="975,-95 1190,-220 1405,-95 1405,155 1190,280 975,155" />
-</g>
 
   
 <!-- weiche große Flächen -->
