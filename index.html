@@ -241,11 +241,12 @@ flex-wrap: wrap;
 
 .button.primary {
 background: linear-gradient(
-135deg,
-#315242 0%,
-#446554 34%,
-#5f7f6d 64%,
-#4f6f5f 100%
+90deg,
+#4d705f 0%,
+#6f947f 18%,
+#86a892 50%,
+#6f947f 82%,
+#4d705f 100%
 );
 color: #ffffff;
 border: none;
@@ -582,13 +583,26 @@ body::after,
 <rect x="1320" y="0" width="280" height="1000" fill="url(#mistRight)" opacity="0.72"/>
 
 <!-- große Nebel-Layer für Tiefe -->
-<ellipse cx="800" cy="470" rx="430" ry="220" fill="rgba(255,255,255,0.18)" filter="url(#mistBlur)" opacity="0.95"/>
+<ellipse cx="800" cy="470" rx="430" ry="220" fill="rgba(255,255,255,0.16)" filter="url(#mistBlur)" opacity="0.82"/>
 <ellipse cx="260" cy="760" rx="260" ry="180" fill="rgba(210,220,238,0.12)" filter="url(#mistBlur)" opacity="0.72"/>
 <ellipse cx="1340" cy="260" rx="240" ry="160" fill="rgba(210,220,238,0.10)" filter="url(#mistBlur)" opacity="0.68"/>
 <ellipse cx="1240" cy="820" rx="260" ry="160" fill="rgba(200,212,232,0.08)" filter="url(#mistBlur)" opacity="0.55"/>
 
 <g fill="none" stroke-linejoin="round" stroke-linecap="round">
 
+<!-- zusätzliche obere Reihe -->
+<g filter="url(#softBlur)" fill="rgba(255,255,255,0.045)" stroke="var(--line-soft)" stroke-width="1.0" opacity="0.72">
+<polygon points="115,-55 330,-180 545,-55 545,195 330,320 115,195" />
+<polygon points="545,-55 760,-180 975,-55 975,195 760,320 545,195" />
+<polygon points="975,-55 1190,-180 1405,-55 1405,195 1190,320 975,195" />
+</g>
+
+<g stroke="var(--line)" stroke-width="0.82" opacity="0.42">
+<polygon points="115,-55 330,-180 545,-55 545,195 330,320 115,195" />
+<polygon points="545,-55 760,-180 975,-55 975,195 760,320 545,195" />
+<polygon points="975,-55 1190,-180 1405,-55 1405,195 1190,320 975,195" />
+</g>
+  
 <!-- weiche große Flächen -->
 <g filter="url(#softBlur)" fill="rgba(255,255,255,0.06)" stroke="var(--line-soft)" stroke-width="1.05" opacity="0.9">
 <polygon points="115,195 330,70 545,195 545,445 330,570 115,445" />
