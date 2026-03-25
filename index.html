@@ -226,39 +226,32 @@ display: inline-flex;
 align-items: center;
 justify-content: center;
 min-height: 48px;
-padding: 0 22px;
+padding: 0 26px;
 border-radius: 999px;
-border: 1px solid rgba(255,255,255,0.46);
-background: var(--button-bg);
-color: var(--button-text);
+background: #2f4f3f;
+color: white;
 text-decoration: none;
 font-size: 15px;
 font-weight: 500;
-letter-spacing: 0.01em;
-box-shadow: var(--shadow-soft);
-backdrop-filter: blur(14px);
--webkit-backdrop-filter: blur(14px);
-transition:
-transform 0.28s ease,
-background 0.28s ease,
-box-shadow 0.28s ease,
-border-color 0.28s ease;
+letter-spacing: 0.02em;
+border: none;
+transition: all 0.25s ease;
 }
 
 .button:hover {
-transform: translateY(-1px) scale(1.01);
-background: var(--button-bg-hover);
-box-shadow: var(--shadow);
-border-color: rgba(255,255,255,0.60);
+background: #3e6b55;
+transform: translateY(-1px);
 }
 
 .button.secondary {
-background: rgba(255,255,255,0.18);
-color: var(--subtle);
+background: transparent;
+color: #2f4f3f;
+border: 1px solid #2f4f3f;
 }
 
 .button.secondary:hover {
-background: rgba(255,255,255,0.30);
+background: #2f4f3f;
+color: white;
 }
 
 .fade-up-1 { animation-delay: 0.2s; }
@@ -549,8 +542,8 @@ pointer-events: none;
 <p class="soon fade-item fade-up-3">understand your struggles<br>find what actually helps</p>
 
 <div class="actions fade-item fade-up-4">
-<a class="button" href="mailto:hello@smartstruggle.com">notify me</a>
-<a class="button secondary" href="#more">learn more</a>
+<a class="button" href="mailto:hello@smartstruggle.com">early access</a>
+<a class="button secondary" href="#more">how it works</a>
 </div>
 </div>
 </section>
