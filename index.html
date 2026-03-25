@@ -226,22 +226,26 @@ flex-wrap: wrap;
 display: inline-flex;
 align-items: center;
 justify-content: center;
-min-height: 48px;
-padding: 0 26px;
+min-height: 52px;
+padding: 0 28px;
 border-radius: 999px;
-background: #2f4f3f;
+background: linear-gradient(135deg, #2f4f3f, #3e6b55);
 color: white;
 text-decoration: none;
 font-size: 15px;
 font-weight: 500;
 letter-spacing: 0.02em;
 border: none;
+
+box-shadow: 0 10px 24px rgba(47, 79, 63, 0.25);
+
 transition: all 0.25s ease;
 }
 
+
 .button:hover {
-background: #3e6b55;
-transform: translateY(-1px);
+transform: translateY(-2px);
+box-shadow: 0 14px 32px rgba(47, 79, 63, 0.35);
 }
 
 .button.secondary {
@@ -352,10 +356,12 @@ padding: 26px;
 
 .content {
 transform: translateY(2.2vh);
+text-align: center;
 }
 
 .glass-panel {
 padding-right: 8px;
+margin: 0 auto;  
 }
 
 .button {
