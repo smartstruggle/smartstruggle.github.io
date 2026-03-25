@@ -224,30 +224,48 @@ gap: 14px;
 flex-wrap: wrap;
 }
 
-.button {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-min-height: 52px;
-padding: 0 28px;
-border-radius: 999px;
-background: linear-gradient(135deg, #2f4f3f, #3e6b55);
-color: white;
-text-decoration: none;
-font-size: 15px;
-font-weight: 500;
-letter-spacing: 0.02em;
-border: none;
+.button.primary {
+  position: relative; /* wichtig für den Lichteffekt */
 
-box-shadow: 0 10px 24px rgba(47, 79, 63, 0.25);
+  background: linear-gradient(
+    135deg,
+    #3f5f4e 0%,
+    #4e6f5d 40%,
+    #6f8f7d 100%
+  );
 
-transition: all 0.25s ease;
+  color: #ffffff;
+  border: none;
+
+  box-shadow:
+    0 6px 18px rgba(40, 60, 50, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  transition: all 0.25s ease;
 }
 
+.button.primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 
-.button:hover {
-transform: translateY(-2px);
-box-shadow: 0 14px 32px rgba(47, 79, 63, 0.35);
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255,255,255,0.25),
+    transparent 60%
+  );
+
+  opacity: 0.6;
+  pointer-events: none;
+}
+  
+.button.primary:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 24px rgba(40, 60, 50, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.3);
 }
 
 .button.secondary {
@@ -582,7 +600,7 @@ find what actually helps
 </p>
   
 <div class="actions fade-item fade-up-4">
-<a class="button" href="mailto:hello@smartstruggle.com">early access</a>
+<a class="button primary" href="mailto:hello@smartstruggle.com">early access</a>
 <a class="button secondary" href="#more">how it works</a>
 </div>
 </div>
