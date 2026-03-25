@@ -240,19 +240,20 @@ flex-wrap: wrap;
 }
 
 .button.primary {
-  background: linear-gradient(
-    135deg,
-    #4a6f5a 0%,
-    #6b8b78 38%,
-    #8fa694 68%,
-    #5f826d 100%
-  );
-  color: #ffffff;
-  border: none;
-  box-shadow:
-    0 8px 22px rgba(40, 60, 50, 0.16),
-    inset 0 1px 0 rgba(255,255,255,0.30);
+background: linear-gradient(
+135deg,
+#3a5c4a 0%,
+#4f6f5d 40%,
+#6f8c7b 70%,
+#466756 100%
+);
+color: #ffffff;
+border: none;
+box-shadow:
+0 8px 22px rgba(40, 60, 50, 0.16),
+inset 0 1px 0 rgba(255,255,255,0.28);
 }
+
 
 .button.primary::after {
   content: "";
@@ -270,7 +271,7 @@ flex-wrap: wrap;
       rgba(255,255,255,0.10) 0%,
       rgba(255,255,255,0.00) 55%
     );
-  opacity: 0.85;
+  opacity: 0.55;
   pointer-events: none;
 }
 
@@ -283,8 +284,8 @@ flex-wrap: wrap;
 
 .button.secondary {
   background: rgba(255,255,255,0.14);
-  color: #2f4f3f;
-  border: 1.2px solid rgba(209,122,58,0.88);
+  color:  #d17a3a;
+  border:  1.2px solid rgba(209,122,58,0.75);
   box-shadow: 0 6px 18px rgba(54, 68, 96, 0.05);
   backdrop-filter: blur(6px);
 }
@@ -397,13 +398,19 @@ margin: 0 auto;
 }
 
 .button {
-width: min(100%, 580px);
+width: min(100%, 430px);
+min-height: 44px;
+padding: 0 22px;
 justify-content: center;
+font-size: 14px;
 }
 
+
 .actions {
-gap: 16px;
-}  
+gap: 14px;
+justify-content: center;
+margin-top: 30px;
+}
 
 h1 {
 letter-spacing: 0.028em;
