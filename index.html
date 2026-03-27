@@ -664,57 +664,6 @@ display: none;
 }
   
 </style>
-</head>
-
-<script>
-const openSignup = document.getElementById("openSignup");
-const signupPanel = document.getElementById("signupPanel");
-const signupForm = document.getElementById("signupForm");
-const signupMessage = document.getElementById("signupMessage");
-const emailInput = document.getElementById("email");
-
-openSignup.addEventListener("click", () => {
-signupPanel.hidden = false;
-signupPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-emailInput.focus();
-});
-
-signupForm.addEventListener("submit", async (event) => {
-event.preventDefault();
-
-const email = emailInput.value.trim();
-
-if (!email) {
-signupMessage.textContent = "Bitte gib deine E-Mail-Adresse ein.";
-return;
-}
-
-signupMessage.textContent = "Ich trage dich ein ...";
-
-try {
-const response = await fetch("/api/subscribe", {
-method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify({ email })
-});
-
-const data = await response.json();
-
-if (!response.ok) {
-signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
-return;
-}
-
-signupMessage.textContent = "Danke – du bist auf der Liste.";
-signupForm.reset();
-} catch (error) {
-signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
-}
-});
-</script>
-
   
 <body>
 <div class="ambient-blur"></div>
@@ -877,6 +826,56 @@ Ich melde mich, sobald Smart Struggle startet.
 </section>
 </main>
 
+<script>
+const openSignup = document.getElementById("openSignup");
+const signupPanel = document.getElementById("signupPanel");
+const signupForm = document.getElementById("signupForm");
+const signupMessage = document.getElementById("signupMessage");
+const emailInput = document.getElementById("email");
+
+openSignup.addEventListener("click", () => {
+signupPanel.hidden = false;
+signupPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+emailInput.focus();
+});
+
+signupForm.addEventListener("submit", async (event) => {
+event.preventDefault();
+
+const email = emailInput.value.trim();
+
+if (!email) {
+signupMessage.textContent = "Bitte gib deine E-Mail-Adresse ein.";
+return;
+}
+
+signupMessage.textContent = "Ich trage dich ein ...";
+
+try {
+const response = await fetch("/api/subscribe", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({ email })
+});
+
+const data = await response.json();
+
+if (!response.ok) {
+signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
+return;
+}
+
+signupMessage.textContent = "Danke – du bist auf der Liste.";
+signupForm.reset();
+} catch (error) {
+signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
+}
+});
+</script>
+
+  
 <script>
 (function () {
 const bgWrap = document.getElementById('bgWrap');
