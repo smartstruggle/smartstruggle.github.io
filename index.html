@@ -325,7 +325,7 @@ opacity: 0;
 transform: translateY(14px);
 animation: fadeUp 1s ease forwards;
 }
-
+  
 @keyframes fadeUp {
 to {
 opacity: 1;
@@ -333,6 +333,88 @@ transform: translateY(0);
 }
 }
 
+.signup-panel {
+margin-top: 18px;
+width: min(100%, 620px);
+}
+
+.signup-form {
+background: rgba(255, 255, 255, 0.52);
+border: 1px solid rgba(84, 95, 120, 0.14);
+border-radius: 22px;
+padding: 18px;
+box-shadow: 0 10px 28px rgba(54, 68, 96, 0.08);
+backdrop-filter: blur(10px);
+}
+
+.signup-label {
+display: block;
+margin-bottom: 10px;
+font-size: 14px;
+color: #4f5763;
+}
+
+.signup-row {
+display: flex;
+gap: 12px;
+align-items: center;
+}
+
+.signup-input {
+flex: 1;
+min-height: 52px;
+border-radius: 999px;
+border: 1px solid rgba(84, 95, 120, 0.16);
+background: rgba(255, 255, 255, 0.82);
+padding: 0 18px;
+font-size: 15px;
+color: #23262d;
+outline: none;
+}
+
+.signup-input::placeholder {
+color: #7a838f;
+}
+
+.signup-input:focus {
+border-color: rgba(58, 92, 74, 0.42);
+box-shadow: 0 0 0 3px rgba(58, 92, 74, 0.08);
+}
+
+.signup-submit {
+min-height: 52px;
+padding: 0 22px;
+border: none;
+border-radius: 999px;
+background: linear-gradient(
+135deg,
+#3a5c4a 0%,
+#4c6c5a 35%,
+#6f8c7b 62%,
+#5f7f6f 100%
+);
+color: #fff;
+font-size: 15px;
+font-weight: 500;
+cursor: pointer;
+box-shadow:
+0 8px 22px rgba(40, 60, 50, 0.16),
+inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+.signup-note {
+margin: 12px 4px 0;
+font-size: 13px;
+color: #69727e;
+}
+
+.signup-message {
+margin: 10px 4px 0;
+font-size: 14px;
+color: #3a5c4a;
+min-height: 20px;
+}
+  
 @media (min-width: 1200px) {
 .content {
 width: min(86vw, 820px);
@@ -493,6 +575,26 @@ bottom: 30px;
 font-size: 12px;
 color: rgba(35, 38, 45, 0.56);
 }
+
+.signup-panel {
+margin-top: 14px;
+width: 100%;
+}
+
+.signup-form {
+padding: 14px;
+border-radius: 20px;
+}
+
+.signup-row {
+flex-direction: column;
+align-items: stretch;
+}
+
+.signup-submit,
+.signup-input {
+width: 100%;
+}  
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -563,6 +665,57 @@ display: none;
   
 </style>
 </head>
+
+<script>
+const openSignup = document.getElementById("openSignup");
+const signupPanel = document.getElementById("signupPanel");
+const signupForm = document.getElementById("signupForm");
+const signupMessage = document.getElementById("signupMessage");
+const emailInput = document.getElementById("email");
+
+openSignup.addEventListener("click", () => {
+signupPanel.hidden = false;
+signupPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+emailInput.focus();
+});
+
+signupForm.addEventListener("submit", async (event) => {
+event.preventDefault();
+
+const email = emailInput.value.trim();
+
+if (!email) {
+signupMessage.textContent = "Bitte gib deine E-Mail-Adresse ein.";
+return;
+}
+
+signupMessage.textContent = "Ich trage dich ein ...";
+
+try {
+const response = await fetch("/api/subscribe", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({ email })
+});
+
+const data = await response.json();
+
+if (!response.ok) {
+signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
+return;
+}
+
+signupMessage.textContent = "Danke – du bist auf der Liste.";
+signupForm.reset();
+} catch (error) {
+signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
+}
+});
+</script>
+
+  
 <body>
 <div class="ambient-blur"></div>
 
@@ -693,14 +846,32 @@ understand your mind,<br>
 find what actually helps
 </p>
   
-<div class="actions fade-item fade-up-4">
-<a class="button primary"
-href="https://f9ae9793.sibforms.com/serve/MUIFAG7b_52XOWdwHNVcn3kZLM02nDmGaqnciG_cAOqKKl-93LRycLRaWp-a1rg6iP24EJKRSxG3GR9vkIQ4lcZN5yeNVDamAwqdAzabhljJvicbkXgmGJ9n8ExVNw1KJqZr7jdMM3vLbTd4J-1P3Xpf2nFRvVPhzbWTcDcVl_oYflwQ8qlOse6vyOoq3i2zbeJUg1wzxpyDTBylZQ=="
-target="_blank"
-rel="noopener noreferrer">
-early access
-</a>
-<a class="button secondary" href="/how-it-works.html">how it works</a>
+<div class="actions fade-item fade-up-3">
+<button class="button primary" id="openSignup" type="button">
+Benachrichtige mich
+</button>
+<a class="button secondary" href="/how-it-works.html">So funktioniert's</a>
+</div>
+
+<div class="signup-panel fade-item fade-up-4" id="signupPanel" hidden>
+<form class="signup-form" id="signupForm">
+<label for="email" class="signup-label">E-Mail-Adresse</label>
+<div class="signup-row">
+<input
+type="email"
+id="email"
+name="email"
+class="signup-input"
+placeholder="deine@email.de"
+required
+/>
+<button type="submit" class="signup-submit">Eintragen</button>
+</div>
+<p class="signup-note">
+Ich melde mich, sobald Smart Struggle startet.
+</p>
+<p class="signup-message" id="signupMessage" aria-live="polite"></p>
+</form>
 </div>
 </div>
 </section>
