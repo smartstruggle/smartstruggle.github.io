@@ -662,6 +662,59 @@ body::after,
 .mobile-octagons {
 display: none;
 }
+
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.4);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 999;
+}
+
+.hidden {
+display: none;
+}
+
+.modal-content {
+background: white;
+padding: 24px;
+border-radius: 20px;
+width: 85%;
+max-width: 400px;
+text-align: center;
+}
+
+.modal-content input {
+width: 100%;
+padding: 12px;
+margin: 12px 0;
+border-radius: 12px;
+border: 1px solid #ccc;
+}
+
+.modal-content button {
+width: 100%;
+padding: 14px;
+border-radius: 999px;
+background: #3d6f5a;
+color: white;
+border: none;
+}
+
+.close {
+position: absolute;
+top: 20px;
+right: 20px;
+font-size: 24px;
+background: none;
+border: none;
+}
+
   
 </style>
   
@@ -802,54 +855,71 @@ Benachrichtige mich
 <a class="button secondary" href="/how-it-works.html">So funktioniert's</a>
 </div>
 
-<div class="signup-panel fade-item fade-up-4" id="signupPanel" hidden>
-<form class="signup-form" id="signupForm">
-<label for="email" class="signup-label">E-Mail-Adresse</label>
-<div class="signup-row">
-<input
-type="email"
-id="email"
-name="email"
-class="signup-input"
-placeholder="deine@email.de"
-required
-/>
-<button type="submit" class="signup-submit">Eintragen</button>
-</div>
-<p class="signup-note">
-Ich melde mich, sobald Smart Struggle startet.
-</p>
-<p class="signup-message" id="signupMessage" aria-live="polite"></p>
-</form>
-</div>
 </div>
 </section>
 </main>
 
+<div id="modal" class="modal hidden" aria-hidden="true">
+<div class="modal-content">
+<button id="closeModal" class="close" type="button" aria-label="Schließen">&times;</button>
+
+<h3 class="modal-title">Benachrichtige mich</h3>
+<p class="modal-text">
+Trag deine E-Mail-Adresse ein und ich melde mich, sobald Smart Struggle startet.
+</p>
+
+<input
+type="email"
+id="modalEmail"
+class="modal-input"
+placeholder="deine@email.de"
+/>
+
+<button id="modalSubmit" class="modal-submit" type="button">Eintragen</button>
+
+<p id="modalMessage" class="modal-message" aria-live="polite"></p>
+</div>
+</div>
+
 <script>
 const openSignup = document.getElementById("openSignup");
-const signupPanel = document.getElementById("signupPanel");
-const signupForm = document.getElementById("signupForm");
-const signupMessage = document.getElementById("signupMessage");
-const emailInput = document.getElementById("email");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+const modalEmail = document.getElementById("modalEmail");
+const modalSubmit = document.getElementById("modalSubmit");
+const modalMessage = document.getElementById("modalMessage");
 
 openSignup.addEventListener("click", () => {
-signupPanel.hidden = false;
-signupPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-emailInput.focus();
+modal.classList.remove("hidden");
+modal.setAttribute("aria-hidden", "false");
+modalEmail.focus();
 });
 
-signupForm.addEventListener("submit", async (event) => {
-event.preventDefault();
+closeModal.addEventListener("click", () => {
+modal.classList.add("hidden");
+modal.setAttribute("aria-hidden", "true");
+modalMessage.textContent = "";
+modalEmail.value = "";
+});
 
-const email = emailInput.value.trim();
+modal.addEventListener("click", (event) => {
+if (event.target === modal) {
+modal.classList.add("hidden");
+modal.setAttribute("aria-hidden", "true");
+modalMessage.textContent = "";
+modalEmail.value = "";
+}
+});
+
+modalSubmit.addEventListener("click", async () => {
+const email = modalEmail.value.trim();
 
 if (!email) {
-signupMessage.textContent = "Bitte gib deine E-Mail-Adresse ein.";
+modalMessage.textContent = "Bitte gib deine E-Mail-Adresse ein.";
 return;
 }
 
-signupMessage.textContent = "Ich trage dich ein ...";
+modalMessage.textContent = "Ich trage dich ein ...";
 
 try {
 const response = await fetch("/api/subscribe", {
@@ -863,19 +933,18 @@ body: JSON.stringify({ email })
 const data = await response.json();
 
 if (!response.ok) {
-signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
+modalMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
 return;
 }
 
-signupMessage.textContent = "Danke – du bist auf der Liste.";
-signupForm.reset();
+modalMessage.textContent = "Danke – du bist auf der Liste.";
+modalEmail.value = "";
 } catch (error) {
-signupMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
+modalMessage.textContent = "Gerade hat es nicht geklappt. Versuch es bitte nochmal.";
 }
 });
 </script>
 
-  
 <script>
 (function () {
 const bgWrap = document.getElementById('bgWrap');
@@ -917,3 +986,4 @@ animate();
 
 </body>
 </html>
+
