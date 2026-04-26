@@ -1,0 +1,341 @@
+/* =========================
+   ROOT / VARIABLES
+========================= */
+
+:root {
+  --bg-center: #eef2f8;
+  --bg-mid: #dbe2ef;
+  --bg-edge: #c6d0e1;
+
+  --text: #23262d;
+  --subtle: #4f5763;
+  --subtle-2: #69727e;
+
+  --green: #3a5c4a;
+  --green-soft: #6f8c7b;
+  --orange: #d17a3a;
+
+  --line: rgba(84, 95, 120, 0.18);
+  --line-soft: rgba(84, 95, 120, 0.10);
+
+  --container: min(100% - 48px, 1120px);
+  --content-narrow: min(100% - 48px, 760px);
+
+  --shadow: 0 16px 36px rgba(54, 68, 96, 0.11);
+  --shadow-soft: 0 8px 24px rgba(54, 68, 96, 0.07);
+}
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--text);
+  overflow: hidden;
+  position: relative;
+
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.16) 34%, rgba(255,255,255,0) 58%),
+    radial-gradient(circle at center, var(--bg-center) 0%, var(--bg-mid) 58%, var(--bg-edge) 100%);
+}
+
+/* =========================
+   BACKGROUND DEPTH
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.52;
+
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255,255,255,0.34) 0%, transparent 30%),
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,0.24) 0%, transparent 22%),
+    radial-gradient(circle at 82% 20%, rgba(210,220,238,0.16) 0%, transparent 20%),
+    radial-gradient(circle at 20% 82%, rgba(205,216,236,0.14) 0%, transparent 22%),
+    radial-gradient(circle at 80% 78%, rgba(198,210,232,0.12) 0%, transparent 24%);
+
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+
+  background-image:
+    radial-gradient(rgba(40, 48, 67, 0.85) 0.45px, transparent 0.45px);
+
+  background-size: 8px 8px;
+  z-index: 0;
+}
+
+.ambient-blur {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(42px);
+  opacity: 0.72;
+}
+
+/* =========================
+   HEADER / NAVIGATION
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--container);
+  z-index: 10000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 0;
+}
+
+.site-brand img {
+  width: 110px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Desktop Nav */
+
+.site-nav {
+  display: flex;
+  gap: 24px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--line-soft);
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.site-nav a:hover {
+  color: var(--green);
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+@media (max-width: 760px) {
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 999px;
+    border: 1px solid var(--line-soft);
+    background: rgba(255,255,255,0.3);
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-toggle span {
+    width: 18px;
+    height: 2px;
+    background: var(--green);
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 70px;
+    right: 0;
+
+    width: 260px;
+    padding: 20px;
+
+    flex-direction: column;
+    gap: 10px;
+
+    background: rgba(255,255,255,0.92);
+    border-radius: 20px;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: 0.25s;
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.1);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s;
+  }
+
+  .nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.content {
+  width: var(--content-narrow);
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(60px, 8vw, 112px);
+  line-height: 0.9;
+}
+
+.tagline {
+  margin-top: 20px;
+  color: var(--orange);
+}
+
+.soon {
+  margin-top: 16px;
+  color: var(--subtle);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.primary {
+  background: linear-gradient(135deg, #3a5c4a, #6f8c7b);
+  color: white;
+}
+
+.button.secondary {
+  border: 1px solid var(--orange);
+  color: var(--orange);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.modal-input {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.modal-submit {
+  margin-top: 12px;
+  width: 100%;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
