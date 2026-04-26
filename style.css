@@ -42,7 +42,8 @@ html {
 body {
   font-family: 'Inter', Arial, sans-serif;
   color: var(--text);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
   background:
     radial-gradient(circle at center, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.16) 34%, rgba(255,255,255,0) 58%),
@@ -1118,6 +1119,16 @@ body::after,
 .helper-card.is-coming,
 .helper-card.is-coming:hover {
   cursor: default;
+}
+
+.helpers-page + .site-footer {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+
+  margin: 0 auto 32px;
+  padding-bottom: 24px;
 }
 
 /* =========================
