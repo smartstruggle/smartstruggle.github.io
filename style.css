@@ -870,19 +870,6 @@ body::after,
   }
 }
 
-.site-header {
-  padding: 16px 0;
-  background: transparent;
-  backdrop-filter: none;
-}
-
-.site-header-inner {
-  width: min(100% - 32px, 520px);
-}
-
-.site-brand img {
-  width: 78px;
-}
 
 /* ACCESSIBILITY */
 
