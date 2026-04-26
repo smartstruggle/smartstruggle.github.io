@@ -127,15 +127,31 @@ body::after {
 .site-header {
   position: fixed;
   top: 0;
-  left: 50%;
-  width: var(--container);
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
   z-index: 10000;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 18px 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.65),
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0)
+  );
+
+  backdrop-filter: blur(12px);
+}
+
+.site-header-inner {
+  width: var(--container);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 0;
-  pointer-events: none;
 }
 
 .site-brand,
