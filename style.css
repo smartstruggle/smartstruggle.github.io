@@ -199,7 +199,7 @@ body::after {
 }
 
 .site-nav a {
-  color: rgba(35, 38, 45, 0.74);
+color: red !important;
   text-decoration: none;
 
   font-size: 15px;
@@ -702,31 +702,6 @@ body::after,
   pointer-events: none;
 }
 
-/* DESKTOP LARGE */
-
-@media (min-width: 1200px) {
-  .content {
-    width: min(86vw, 820px);
-    transform: translateY(-0.6vh);
-  }
-
-  .bg {
-    transform: scale(1.08);
-  }
-
-  .ambient-blur {
-    opacity: 0.76;
-    filter: blur(46px);
-  }
-
-  h1 {
-    font-size: clamp(76px, 7vw, 118px);
-  }
-
-  .site-brand img {
-    width: 150px;
-  }
-}
 
 /* MOBILE */
 
