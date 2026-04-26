@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-<!DOCTYPE html>
-<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,8 +23,6 @@
 </head>
 
 <body>
-
-  <!-- HEADER -->
   <header class="site-header">
     <div class="site-header-inner">
 
@@ -40,13 +36,14 @@
         type="button"
         aria-label="Menü öffnen"
         aria-expanded="false"
+        aria-controls="siteNav"
       >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="site-nav" id="siteNav">
+      <nav class="site-nav" id="siteNav" aria-label="Hauptnavigation">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
         <a href="/journal.html">Journal</a>
@@ -58,36 +55,7 @@
   </header>
 
   <div class="nav-backdrop" id="navBackdrop"></div>
-<body>
-  <header class="site-header">
-    <a class="site-brand" href="/" aria-label="Smart Struggle Home">
-      <img src="logo.png" alt="Smart Struggle Logo">
-    </a>
-
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Menü öffnen"
-      aria-expanded="false"
-      aria-controls="siteNav"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="site-nav" id="siteNav" aria-label="Hauptnavigation">
-      <a href="/">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/journal.html">Journal</a>
-      <a href="/mindful-helpers.html">Mindful Helpers</a>
-      <a href="https://mindfulbreaks.vercel.app/" target="_blank" rel="noopener">Mindful Breaks</a>
-    </nav>
-  </header>
-
-  <div class="nav-backdrop" id="navBackdrop"></div>
-
+  
   <div class="ambient-blur"></div>
   <div class="mobile-octagons" aria-hidden="true"></div>
 
