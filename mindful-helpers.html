@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mindful Helpers · Smart Struggle</title>
+
+  <meta property="og:title" content="Mindful Helpers · Smart Struggle" />
+  <meta property="og:description" content="Small tools for different moments." />
+  <meta property="og:image" content="https://smartstruggle.de/preview.png" />
+  <meta property="og:url" content="https://smartstruggle.de/mindful-helpers.html" />
+  <meta property="og:type" content="website" />
+
+  <meta name="apple-mobile-web-app-title" content="Smart Struggle">
+  <link rel="apple-touch-icon" href="/logoapp.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+
+      <a class="site-brand" href="/" aria-label="Smart Struggle Home">
+        <img src="logo.png" alt="Smart Struggle Logo">
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="siteNav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Hauptnavigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/journal.html">Journal</a>
+        <a href="/mindful-helpers.html">Mindful Helpers</a>
+        <a href="https://mindfulbreaks.vercel.app/" target="_blank" rel="noopener">Mindful Breaks</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <div class="ambient-blur"></div>
+  <div class="mobile-octagons" aria-hidden="true"></div>
+
+  <main class="helpers-page">
+    <section class="helpers-hero">
+      <p class="helpers-kicker">Smart Struggle tools</p>
+      <h1>Mindful Helpers</h1>
+      <p class="helpers-intro">
+        Small tools for different moments — when things feel too loud, too heavy,
+        or simply hard to start.
+      </p>
+    </section>
+
+    <section class="helpers-section">
+      <div class="helpers-section-heading">
+        <p class="helpers-label">01</p>
+        <h2>When you're overwhelmed</h2>
+        <p>
+          For moments when your nervous system feels overloaded and you need something simple to come back to your body.
+        </p>
+      </div>
+
+      <div class="helpers-grid">
+        <article class="helper-card is-coming">
+          <div class="helper-icon">◌</div>
+          <div>
+            <p class="helper-status">coming soon</p>
+            <h3>Just Breathe</h3>
+            <p>A gentle breathing space for anxious or restless moments.</p>
+          </div>
+        </article>
+
+        <article class="helper-card is-coming">
+          <div class="helper-icon">⌁</div>
+          <div>
+            <p class="helper-status">coming soon</p>
+            <h3>Body Scan</h3>
+            <p>Reconnect with your body without needing to change anything.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="helpers-section">
+      <div class="helpers-section-heading">
+        <p class="helpers-label">02</p>
+        <h2>When you're stuck in your thoughts</h2>
+        <p>
+          For spirals, overthinking, or the feeling that everything is happening inside your head at once.
+        </p>
+      </div>
+
+      <div class="helpers-grid">
+        <article class="helper-card is-coming">
+          <div class="helper-icon">✦</div>
+          <div>
+            <p class="helper-status">coming soon</p>
+            <h3>Pocket Thoughts</h3>
+            <p>A small mindful thought to hold onto for the day.</p>
+          </div>
+        </article>
+
+        <article class="helper-card is-coming">
+          <div class="helper-icon">✎</div>
+          <div>
+            <p class="helper-status">planned</p>
+            <h3>Check-in Journal</h3>
+            <p>Notice what is here — without turning it into a task.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="helpers-section">
+      <div class="helpers-section-heading">
+        <p class="helpers-label">03</p>
+        <h2>When you're low or unwell</h2>
+        <p>
+          For sick days, low-energy days, or times when even small things can feel like too much.
+        </p>
+      </div>
+
+      <div class="helpers-grid">
+        <article class="helper-card is-coming">
+          <div class="helper-icon">♡</div>
+          <div>
+            <p class="helper-status">idea</p>
+            <h3>Sick Days Helper</h3>
+            <p>Tiny, kind support when you do not feel okay.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="helpers-section">
+      <div class="helpers-section-heading">
+        <p class="helpers-label">04</p>
+        <h2>When you can't take a break</h2>
+        <p>
+          For working, studying, coding, or getting lost in focus when your body quietly needs a pause.
+        </p>
+      </div>
+
+      <div class="helpers-grid">
+        <a class="helper-card helper-card-link is-live" href="https://mindfulbreaks.vercel.app/" target="_blank" rel="noopener">
+          <div class="helper-icon">☼</div>
+          <div>
+            <p class="helper-status">open tool</p>
+            <h3>Mindful Breaks</h3>
+            <p>Gentle reminders to pause, reset, and come back to yourself.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="/impressum.html">Impressum</a>
+    <span>·</span>
+    <a href="/datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const siteNav = document.getElementById("siteNav");
+    const navBackdrop = document.getElementById("navBackdrop");
+
+    function openMenu() {
+      siteNav.classList.add("is-open");
+      navBackdrop.classList.add("is-visible");
+      menuToggle.classList.add("is-open");
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Menü schließen");
+    }
+
+    function closeMenu() {
+      siteNav.classList.remove("is-open");
+      navBackdrop.classList.remove("is-visible");
+      menuToggle.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Menü öffnen");
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.contains("is-open");
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    navBackdrop.addEventListener("click", closeMenu);
+
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+  </script>
+</body>
+</html>
